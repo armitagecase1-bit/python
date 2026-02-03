@@ -1,0 +1,22 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+.env
+
+# Editor files
+.vscode/
+*.swp
+.DS_Store
+
+# Virtual environment
+venv/
+
+# Byte-compiled / optimized / DLL files
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
