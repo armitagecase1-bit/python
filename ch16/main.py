@@ -9,6 +9,7 @@ BURGER_CONDIMENTS = ['Ketchup', 'Mustard', 'Mayo', 'Lettuce', 'Tomato', 'Onion',
 DRINK_FLAVORS = ['Fanta', 'Coke', 'Sprite', 'Root Beer']
 DRINK_SIZES = [12,16,20]
 DRINK_PRICE = 2.00
+SIDES = ['Fries', 'Onion Rings', 'Salad']
 SIDE_PRICE = 2.50
 COMBO_DISCOUNT = 1.50
 
@@ -60,7 +61,32 @@ while choice == False:
         drink_size = size
     else:
         size = input("Invalid choice. Please enter a valid drink size: ")
+    d = drink(drink_name, DRINK_PRICE, drink_size)
+    return d
 
+def get_side_order():
+    print("These are the available sides: ")
+    print(SIDES)
+    choice = False
+    side_name = None
+    while choice == False: 
+        q1 = input("Please enter your side choice: ")
+        if q1.lower() in SIDES:
+            choice = True
+            side_name = q1.lower()
+        else:
+            print("Please enter a valid side.")
+    s = side(side_name,SIDE_PRICE)
+    return s
+
+def get_combo_order():
+    print("Let's get you a combo meal!")
+    print("First, let's order the burger for your combo.")
+    b = get_burger_order()
+    print("Finally, let's order the side for your combo..")
+    s = get_side_order()
+    c = combo("Combo",b,d,s,COMBO_DISCOUNT)
+    return c
 
 def order_once():
     possible_options = [1,2,3,4]
@@ -81,3 +107,5 @@ def order_once():
             item = get_combo_order()
     return item
 
+client_order = order_many()
+client_order.display()
