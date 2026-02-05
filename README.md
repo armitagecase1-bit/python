@@ -7,8 +7,10 @@ Learning Python through projects organized by chapter.
 - **ch 13/** - Chapter 13 projects
 - **ch 14/** - Chapter 14 projects (Classes and Methods)
 - **ch 15/** - Chapter 15 projects (Inheritance and Polymorphism)
+- **ch 16/** - Chapter 16 projects (Burger Shop)
+- **ch 17/** - Chapter 17 projects (Working with Dates and Times)
 - **games/** - Game projects
-  - goblin_assault/ - Goblin Assault game
+  - assault/ - Generalized Assault game
 
 ## Getting Started
 

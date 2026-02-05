@@ -129,4 +129,153 @@ elif d1 == today:
 
 # 17.13 Working with the UTC dates
 import datetime
-time_utc_now = datetime.datetime.utcnow()
+time_utc_now = datetime.datetime.now()
+print(time_utc_now)
+print("-" * 15)
+print(time_utc_now.year)
+print(time_utc_now.month)
+print(time_utc_now.day)
+print(time_utc_now.hour)
+print(time_utc_now.minute)
+print(time_utc_now.second)
+print(time_utc_now.microsecond)
+print(time_utc_now.tzinfo)
+
+# 17.14 using timestamps
+import datetime
+import math
+
+d_now = datetime.datetime.now()
+
+tstamp = math.floor(datetime.datetime.timestamp(d_now))
+
+print(d_now)
+print(tstamp)
+
+# 17.15 checking multiple timestamps
+import datetime
+
+d_now = datetime.datetime.now()
+now_stamp = datetime.datetime.timestamp(d_now)
+
+print(d_now)
+print(now_stamp)
+print("-" * 15)
+for ctr in range(0,10):
+    for ctr2 in range(0, 100000):
+        x = 1
+        x = x + 1
+    print(".")
+
+d_later = datetime.datetime.now()
+later_stamp = datetime.datetime.timestamp(d_later)
+
+print(d_later)
+print(later_stamp)
+
+print("-" * 15)
+print(later_stamp - now_stamp)
+
+# 17.16
+import datetime
+
+print(datetime.datetime.now())
+
+# add one day to the current datetime
+d1 = datetime.datetime.now() + datetime.timedelta(days = 1)
+print(d1)
+
+# subtract 4 weeks from the current datetime
+d2 = datetime.datetime.now() - datetime.timedelta(weeks = 4)
+
+# add one hour to the current datetime
+d3 = datetime.datetime.now() + datetime.timedelta(minutes = 60, hours = 1)
+
+# 17.17 Calculating the number of days between two dates
+import datetime
+
+d_now = datetime.datetime.now()
+d_other = datetime.datetime(2021,1,1)
+
+print(d_now)
+print(d_other)
+
+days_passed = d_now - d_other
+print(days_passed)
+print(days_passed.days)
+
+# 17.18 What's the date?
+import datetime
+year = int(input("Please enter a year: "))
+month = int(input("Please enter a month: "))
+day = int(input("Please enter a day: "))
+
+d1 = datetime.datetime(year,month,day)
+dnow = datetime.datetime.now()
+
+days_passed = dnow - d1
+
+if days_passed.days < 0:
+    past_date = dnow + datetime.timedelta(days_passed.days)
+    print("That date is " + str(abs(days_passed.days)) + " days in the future. " + str(abs(days_passed.days)) + " days ago, the date was " + str(past_date.date()) + ".")
+
+elif days_passed.days > 0:
+    future_date = dnow + datetime.timedelta(days_passed.days) 
+    print("That date was " + str(abs(days_passed.days)) + " days ago. In " + str(abs(days_passed.days)) + " days, the date will be " + str(future_date.date()) + ".")
+
+elif days_passed.days == 0: 
+    future_date = dnow + datetime.timedelta(weeks = 26)
+    print("That's today! In six months the date will be " + str(future_date.date()) + ".")
+
+# 17.19 showing the date without the time
+import datetime
+
+time_today = datetime.date.today()
+print(time_today)
+print(time_today.year)
+print(time_today.month)
+print(time_now.day)
+
+# 17.20 days until christmas
+import datetime
+
+dnow = datetime.date.today()
+christmas = datetime.date(dnow.year,12,25)
+
+days_until = christmas - dnow
+print("Today is ", dnow)
+print("Chriistmas is just " + str(days_until.days) + " away!")
+
+# 17.21 using only time without a date
+import datetime
+t = datetime.time(13,45,30)
+print(t)
+print(type(t))
+
+current_time = datetime.datetime.now().time()
+print(current_time)
+print(type(current_time))
+
+# 17.22 Time off day greeting
+import datetime
+
+noon = datetime.time(12,00,00)
+current_time = datetime.datetime.now().time()
+
+if current_time >= noon:
+    print("Good afternoon!")
+elif current_time < noon:
+    print("Good morning!")
+
+while True:
+    user_input = input("Would you like to enter a time? (Type quit to exit) ")
+    if user_input.lower() == 'quit':
+        break
+    elif user_input.lower() == 'yes':
+        user_input_time = input("Enter a time[HH:MM:SS format]: ")
+        time_split = [int(i) for i in user_input_time.split(":")]
+        user_time = datetime.time(time_split[0],time_split[1],time_split[2])
+        if user_time >= noon:
+            print(str(user_time) + " is iin the afternoon.")
+        elif user_time < noon:
+            print(str(user_time) + " is in the morning. ")
