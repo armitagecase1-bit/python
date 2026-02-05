@@ -19,7 +19,7 @@ class burger(food_item):
         self.condiments = []
 
     def add_condiment(self,condiment):
-        if condiment not iin self.condiments:
+        if condiment not in self.condiments:
             self.condiments.append(condiment)
     
     def __str__(self):
@@ -29,7 +29,7 @@ class burger(food_item):
     
 # Drink Class
 class drink(food_item):
-    def __init__(self,name,price,size):
+    def __init__(self,name,size,price):
         super(drink,self).__init__(name,price)
         self.size = size
 
@@ -42,6 +42,7 @@ class drink(food_item):
 class side(food_item):
     def __init__(self,name,price):
         super(side,self).__init__(name,price)
+
 
 # Combo Class
 class combo(food_item):

@@ -1,7 +1,7 @@
 
 # Burger Shop Order Module
 # This module defines the Order class for managing customer orders in a burger shop.
-from ch16.menu import burger, drink, side, combo
+from menu import burger, drink, side, combo
 class Order:
     def __init__(self,name):
         self.name = name
@@ -29,3 +29,15 @@ class Order:
         return "Total Orer Amount: $" + str(self.get_price())
         print("=" * 30)
     
+    def display(self):
+        print("=" * 30)
+        print("Here is a summary of your order")
+        print("Order for " + self.name)
+        print("Here is a list of items in the order: ")
+        
+        for item in self.items:
+            print("_" * 30)
+            print(str(item))
+            print("-" * 30)
+            print("Total Order Amount :$" + str(self.get_price()))
+            print("=" * 30)
