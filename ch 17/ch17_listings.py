@@ -244,7 +244,7 @@ christmas = datetime.date(dnow.year,12,25)
 
 days_until = christmas - dnow
 print("Today is ", dnow)
-print("Chriistmas is just " + str(days_until.days) + " away!")
+print("Christmas is just " + str(days_until.days) + " away!")
 
 # 17.21 using only time without a date
 import datetime
@@ -256,7 +256,7 @@ current_time = datetime.datetime.now().time()
 print(current_time)
 print(type(current_time))
 
-# 17.22 Time off day greeting
+# 17.22 Time of day greeting
 import datetime
 
 noon = datetime.time(12,00,00)
